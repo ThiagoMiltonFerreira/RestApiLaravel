@@ -22,7 +22,7 @@ Route::get('/ok',function(){
     return ['status' => true];
 
 });
-
+//Rotas
 Route::group(['prefix' => '/products'], function () {
 
     Route::get('/','Api\ProductController@index')->name('index.products');
