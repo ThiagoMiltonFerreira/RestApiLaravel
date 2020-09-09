@@ -11,6 +11,14 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/teste/middleareGlobal', 'HomeController@teste');
+Route::get('/teste/middleare', 'HomeController@teste')->middleware('teste');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+

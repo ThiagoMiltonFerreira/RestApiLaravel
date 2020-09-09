@@ -18,20 +18,13 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/ok',function(){
-
     return ['status' => true];
-
 });
 //Rotas
 Route::group(['prefix' => '/products'], function () {
-
-    Route::get('/','Api\ProductController@index')->name('index.products');
+    Route::get('/','Api\ProductController@index')->name('index.products')->middleware('testeApi');
     Route::get('/{id}','Api\ProductController@show')->name('single_products');
-
     Route::post('/','Api\ProductController@store')->name('store_products');
     Route::put('/{id}','Api\ProductController@update')->name('update_products');
-
     Route::delete('/{id}','Api\ProductController@delete')->name('delete_products');
-
-
 });

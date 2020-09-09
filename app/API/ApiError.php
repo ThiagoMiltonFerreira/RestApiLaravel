@@ -4,7 +4,6 @@ namespace App\Api;
 
 class ApiError
 {
-
     const ERROR_TESTE = 'Houve um arro ao realizar operacao - ERROR TESTE';
 
 
@@ -19,7 +18,9 @@ class ApiError
 
 
 
-?>
+
+
+
 
 
 

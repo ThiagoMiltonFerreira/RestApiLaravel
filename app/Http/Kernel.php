@@ -15,6 +15,18 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        //Middleware Global registrado
+        /*
+
+            Se você deseja que um middleware seja executado durante cada solicitação HTTP para seu aplicativo,
+            simplesmente liste a classe de middleware na $middlewarepropriedade de sua classe.app/Http/Kernel.php
+
+        */
+        'testeMiddlewareGlobal' => \App\Http\Middleware\testeMiddlewareGlobal::class,
+
+
+
+        //Fim registro Middleware
     ];
 
     /**
@@ -35,6 +47,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
+            'testeApi' => \App\Http\Middleware\CheckProducts::class,
         ],
     ];
 
@@ -46,11 +59,20 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+
+        //Middleware registrado
+        'teste' => \App\Http\Middleware\CheckProducts::class,
+
+
+
+        //Fim registro Middleware
+
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+
     ];
 }
